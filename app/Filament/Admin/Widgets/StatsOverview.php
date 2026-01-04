@@ -7,6 +7,7 @@ use Filament\Widgets\BarChartWidget;
 use App\Models\Peminjaman;
 use App\Models\Barang;
 use Carbon\Carbon;
+use App\Models\PeminjamanUser;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\HtmlString;
 
@@ -19,8 +20,9 @@ class StatsOverview extends BaseWidget
                 ->description('Total barang yang bisa dipinjam')
                 ->color('success'),
 
-            Card::make('Barang Dipinjam', Barang::where('status', 'dipinjam')->count())
+                Card::make('Barang Dipinjam', PeminjamanUser::where('status_peminjaman', 'disetujui')->count())
                 ->description('Total barang yang sedang dipinjam')
+            
                 ->color('warning'),
 
             Card::make('Barang Rusak', Barang::where('status', 'rusak')->count())
