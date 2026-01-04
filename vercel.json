@@ -18,6 +18,10 @@
             "dest": "/public/favicon.ico"
         },
         {
+            "src": "/(.*\\.(?:png|jpg|jpeg|svg|gif|css|js))",
+            "dest": "/public/$1"
+        },
+        {
             "src": "/(.*)",
             "dest": "/api/index.php"
         }
